@@ -1,7 +1,7 @@
 const startingTheBlogPost = `
   # Deploying a React Blog with AWS CDK and S3
 
-  Hi! You landed on my first post for this blog. In this post, I'll be detailing the steps to deploy a static site on AWS. In fact, the site that you are reading right now was deployed with these steps. You can find the code [here](https://github.com/mnguyenngo/serverless-blog).
+  Hi! You landed on my first post for this blog. In this post, I'll be detailing the steps to deploy a blog website on AWS. In fact, the site that you are reading right now was deployed with these steps. You can find the code [here](https://github.com/mnguyenngo/serverless-blog).
 
   ## Steps
 
@@ -40,9 +40,11 @@ const startingTheBlogPost = `
 
   ### Build and test the starter React code
 
-  ~~~
-  yarn build && yarn start
-  ~~~
+  While in the **/frontend** directory, run the following commands to build and test the code.
+
+  <code>
+    yarn build && yarn start
+  </code>
 
   After running the above command, your browser should automatically open a tab to \`localhost:3000\` where you will see the spinning React logo.
 
@@ -59,21 +61,20 @@ const startingTheBlogPost = `
   import { BucketDeployment, Source } from "aws-cdk-lib/aws-s3-deployment";
   import { Construct } from "constructs";
 
-
   export class BlogFrontendStack extends Stack {
     constructor(scope: Construct, id: string, props?: StackProps) {
-      super(scope, id, props);
+      super(scope, id, props)
 
       const bucket = new Bucket(this, 'BlogFrontendBucket', {
         publicReadAccess: true,
         removalPolicy: RemovalPolicy.DESTROY,
         websiteIndexDocument: 'index.html',
-      });
+      })
 
       new BucketDeployment(this, 'DeployBlogFrontend', {
         sources: [Source.asset('../frontend/build')],
         destinationBucket: bucket,
-      });
+      })
 
       new CloudFrontWebDistribution(this, 'BlogFrontendCFDistribution', {
         originConfigs: [
@@ -84,8 +85,7 @@ const startingTheBlogPost = `
             behaviors: [{ isDefaultBehavior: true }],
           },
         ],
-      });
-
+      })
     }
   }
   ~~~
@@ -123,8 +123,10 @@ const startingTheBlogPost = `
 
   ## References
 
-  1. One of the first references I read for deploying a single page app using CDK: https://github.com/nideveloper/CDK-SPA-Deploy
-  2. AWS blog article on using CloudFront with S3 webites: https://aws.amazon.com/blogs/networking-and-content-delivery/amazon-s3-amazon-cloudfront-a-match-made-in-the-cloud/
+  1. One of the first references I read for deploying a single page app using CDK: https://github.com/cdk-patterns/serverless/tree/main/s3-react-website/typescript
+  2. The construct that is used by the above reference: https://github.com/nideveloper/CDK-SPA-Deploy
+  3. AWS blog article on using CloudFront with S3 webites: https://aws.amazon.com/blogs/networking-and-content-delivery/amazon-s3-amazon-cloudfront-a-match-made-in-the-cloud/
+  4. AWS CDK example for static sites: https://github.com/aws-samples/aws-cdk-examples/tree/master/typescript/static-site
 
 `;
 
