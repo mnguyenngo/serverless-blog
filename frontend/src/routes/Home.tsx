@@ -8,9 +8,10 @@ export default function Home() {
       <h1>Posts</h1>
       <div className="post-title">
         <span>2022 January - </span>
-        <Link to={`/post/${STARTING_THE_BLOG_URL}`} className="post-link">Deploying a blog with AWS CDK and S3</Link>
+        <Link to={`/post/${STARTING_THE_BLOG_URL}`} className="post-link">
+          Deploying a blog with AWS CDK and S3
+        </Link>
       </div>
-
     </div>
   );
 }
