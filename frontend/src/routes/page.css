@@ -1,19 +1,16 @@
 .page-content {
-  background-color: #282c34;
+  background-color: #e7e7e7;
   padding: 1rem 2rem;
   display: flex;
   flex-direction: column;
   font-size: medium;
-  color: rgba(255, 255, 255, 0.88);
 }
 
 .post-title {
-  color: rgba(255, 255, 255, 0.88);
   font-size: large;
-  margin: 0 0.25rem;
+  margin: 0 0 1rem;
 }
 
 .post-link {
-  color: rgba(255, 255, 255, 0.88);
   margin: 0 0.25rem;
 }

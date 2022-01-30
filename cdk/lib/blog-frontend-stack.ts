@@ -12,7 +12,12 @@ import {
   ViewerCertificate,
 } from "aws-cdk-lib/aws-cloudfront";
 import { CanonicalUserPrincipal, PolicyStatement } from "aws-cdk-lib/aws-iam";
-import { ARecord, IHostedZone, RecordTarget } from "aws-cdk-lib/aws-route53";
+import {
+  AaaaRecord,
+  ARecord,
+  IHostedZone,
+  RecordTarget,
+} from "aws-cdk-lib/aws-route53";
 import { CloudFrontTarget } from "aws-cdk-lib/aws-route53-targets";
 import { BlockPublicAccess, Bucket } from "aws-cdk-lib/aws-s3";
 import { BucketDeployment, Source } from "aws-cdk-lib/aws-s3-deployment";
@@ -84,7 +89,13 @@ export class BlogFrontendStack extends Stack {
       }
     );
 
-    new ARecord(this, "AliasRecord", {
+    new ARecord(this, "ARecord", {
+      recordName: props.siteDomain,
+      target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
+      zone: props.zone,
+    });
+
+    new AaaaRecord(this, "AAAARecord", {
       recordName: props.siteDomain,
       target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
       zone: props.zone,

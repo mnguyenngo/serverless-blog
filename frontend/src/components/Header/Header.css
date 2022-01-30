@@ -1,5 +1,5 @@
 .header-container {
-  border-bottom: 3px solid rgba(255, 255, 255, 0.25);
+  border-bottom: 1px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,12 +18,10 @@
 }
 
 .nav-link {
-  color: rgba(255, 255, 255, 0.88);
   font-size: medium;
   margin: 0 0.5rem 0;
 }
 
 .title-link {
-  color: rgba(255, 255, 255, 0.88);
   text-decoration: none;
 }

@@ -2,4 +2,15 @@ pre {
   background-color: black;
   padding: 0.5rem;
   overflow-x: auto;
+  color: white;
+}
+
+pre code {
+  color: white;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+  color: #d40e0d;
 }
