@@ -3,6 +3,10 @@ const secureCustomDomain = `
 
   In the last post, [Deploying a React Blog with AWS CDK and S3](./deploying-react-on-aws), I deployed a static website to AWS with a URL with a CloudFront top-level domain (TLD). In this post, I'll outline the process of deploying a secure website with a custom domain. At the time of this writing, I noticed that Github Copilot makes suggestions for this post. So, I'll be fairly liberal with accepting the suggestions and we'll see how it goes.
 
+  <img src="https://raw.githubusercontent.com/cdk-patterns/serverless/master/s3-angular-website/img/architecture.PNG" alt="Secure Site Diagram" width="90%" />
+  *Image source: https://github.com/cdk-patterns/serverless/blob/main/s3-angular-website/README.md*
+
+
   ## The Custom Domain
 
   The CloudFront distribution created in my previous post came with a secure CloudFront URL. Although this is nice, having a custom domain with my name is much better. My domain was actually managed in Google Domains but I chose to transfer it over to AWS Route 53 in order to make deployment as easy as possible. I create the hosted zone using the Route 53 <code>HostedZone</code> construct and define the site domain below.

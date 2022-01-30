@@ -3,6 +3,8 @@ const startingTheBlogPost = `
 
   Hi! You landed on my first post for this blog. In this post, I'll be detailing the steps to deploy a blog website on AWS. In fact, the site that you are reading right now was deployed with these steps. You can find the code [here](https://github.com/mnguyenngo/serverless-blog).
 
+  <img src="https://www.nguyenngo.com/images/simple_site.png" alt="Simple Site Diagram" width="90%" />
+
   ## Steps
 
   ### Prerequisites
