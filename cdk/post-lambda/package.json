@@ -1,0 +1,12 @@
+{
+  "name": "post-lambda",
+  "version": "0.0.1",
+  "description": "Interfaces with Posts DDB table",
+  "main": "main.ts",
+  "author": "Nguyen Ngo",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.1133.0",
+    "slugify": "^1.6.5"
+  }
+}

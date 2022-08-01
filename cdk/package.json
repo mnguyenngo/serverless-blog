@@ -8,13 +8,18 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "test": "jest",
+    "test": "jest --verbose --runInBand",
+    "unit-test": "jest --verbose ./test/test_cases/unit",
+    "integration-test": "jest --verbose --runInBand ./test/test_cases/integration",
+    "e2e-test": "jest --verbose ./test/test_cases/e2e",
     "cdk": "cdk"
   },
   "devDependencies": {
     "@types/jest": "^26.0.10",
     "@types/node": "10.17.27",
     "aws-cdk": "^2.8.0",
+    "chance": "^1.1.8",
+    "colors": "^1.4.0",
     "dotenv": "^14.3.2",
     "jest": "^26.4.2",
     "ts-jest": "^26.2.0",
@@ -22,10 +27,11 @@
     "typescript": "~3.9.7"
   },
   "dependencies": {
+    "@aws-cdk/aws-appsync-alpha": "^2.23.0-alpha.0",
     "@aws-cdk/aws-cloudfront": "^1.135.0",
     "@aws-cdk/aws-s3": "^1.135.0",
     "@aws-cdk/aws-s3-deployment": "^1.135.0",
-    "aws-cdk-lib": "2.1.0",
+    "aws-cdk-lib": "^2.1.0",
     "constructs": "^10.0.0",
     "source-map-support": "^0.5.16"
   }

@@ -2,6 +2,8 @@
 import { App, Environment, Stack, StackProps } from "aws-cdk-lib";
 import { BlogFrontendStack } from "../lib/blog-frontend-stack";
 import { CertificateStack } from "../lib/certificate-stack";
+import { CognitoStack } from "../lib/cognito-stack";
+import { PostApiStack } from "../lib/post-api-stack";
 require("dotenv").config({ path: ".env" });
 
 const targetRegion = "us-east-1";
@@ -22,6 +24,15 @@ class MyBlog extends Stack {
       siteDomain: certificate.siteDomain,
       viewerCertificate: certificate.viewerCertificate,
       zone: certificate.zone,
+    });
+
+    const cognito = new CognitoStack(this, "CognitoStack", {
+      env: props.env as Environment,
+    });
+
+    new PostApiStack(this, "PostApiStack", {
+      env: props.env as Environment,
+      userPool: cognito.userPool,
     });
   }
 }

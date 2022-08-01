@@ -1,0 +1,34 @@
+type Query {
+  getPostById(author: String!, postId: String!): Post
+  getPosts(author: String!): [Post] @aws_cognito_user_pools
+  getPublishedPosts(author: String!): [Post]
+}
+
+type Mutation {
+  createPost(post: PostInput!): Post @aws_cognito_user_pools
+  deletePost(author: String!, postId: String!): String @aws_cognito_user_pools
+  updatePost(author: String!, postId: String!, post: PostInput!): Post
+    @aws_cognito_user_pools
+  publishPost(author: String!, postId: String!): Post @aws_cognito_user_pools
+  unpublishPost(author: String!, postId: String!): Post @aws_cognito_user_pools
+}
+
+# TODO: why do we need auth decorators here?
+type Post @aws_api_key @aws_cognito_user_pools {
+  title: String!
+  titleSlug: String!
+  author: String!
+  content: String!
+  created: AWSDateTime!
+  updated: AWSDateTime!
+  viewCount: Int!
+  postId: String!
+  published: Boolean!
+  publishDate: AWSDateTime
+}
+
+input PostInput {
+  author: String!
+  title: String!
+  content: String!
+}
