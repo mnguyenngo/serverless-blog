@@ -1,6 +1,6 @@
 import "./page.css";
 
-export default function About() {
+const About = () => {
   return (
     <div className="page-content">
       <h2>Hey, my name is Nguyen!</h2>
@@ -28,4 +28,6 @@ export default function About() {
       </p>
     </div>
   );
-}
+};
+
+export default About;

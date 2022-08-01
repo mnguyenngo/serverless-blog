@@ -1,10 +1,12 @@
 import { Outlet } from "react-router";
 import "./page.css";
 
-export default function PostPage() {
+const PostPage = () => {
   return (
     <div className="page-content">
       <Outlet />
     </div>
   );
-}
+};
+
+export default PostPage;
