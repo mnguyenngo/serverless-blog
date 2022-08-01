@@ -1,12 +1,12 @@
 .header-container {
-  border-bottom: 1px solid black;
+  box-shadow: 1px 1px 10px lightgray;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .header-content {
-  padding: 2rem;
+  padding: 0 0 2rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -1,0 +1,41 @@
+.status-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.login-status {
+  margin: 1rem 1rem 1rem auto;
+  font-size: small;
+  display: flex;
+  flex-direction: row;
+}
+
+.admin-page-link {
+  margin: 0 0.5rem 0 0;
+}
+
+.login-form {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form-fields {
+  margin: auto;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form-fields > label {
+  font-size: small;
+}
+
+.login-form-fields > input {
+  margin: 0 0 1rem 0;
+}
+
+.login-form-fields > button {
+  margin: 0;
+}

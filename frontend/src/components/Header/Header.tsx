@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
+import Status from "../User/Status";
 import "./Header.css";
 
 export default function Header() {
   return (
     <div className="header-container">
+      <Status />
       <div className="header-content">
         <Link to="/" className="title-link">
           <h2>Nguyen Ngo</h2>
